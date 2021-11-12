@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="STREAMING">
+	<insert id="insertStreaming" parameterType="StreamingVO">
+		INSERT INTO `STREAMING`
+		(STREAMING_INDEX, STREAMING_CATEGORY, STREAMING_STATE, STREAMNIG_START, STREAMING_COUNT, MEMBER_MAIL)
+		VALUES (null, #{streaming_category}, #{streaming_state}, sysdate(), '0', #{member_mail})
+	</insert>
+	
+	<update id="updateStreaming" parameterType="StreamingVO">
+		UPDATE `STREAMING`
+		   SET STREAMING_STATE = 'D'
+		 WHERE MEMBER_MAIL = #{member_mail}
+	</update>
+	
+	<select id="selectListStreaming" resultType="StreamingVO">
+		SELECT * FROM `STREAMING`
+		where STREAMING_STATE = 'L'
+	</select>
+
+</mapper>

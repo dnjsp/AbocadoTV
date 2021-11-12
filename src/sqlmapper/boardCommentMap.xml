@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="COMMENT">
+
+
+<insert id="insertComment" parameterType="BoardCommentVO">
+	INSERT INTO BOARD_COMMENT(BCOMMENT_INDEX, MEMBER_MAIL, BCOMMENT_DATE,BCOMMENT_CONTENT,BCOMMENT_STATE,BOARD_INDEX)
+	VALUES(NULL, #{member_mail}, SYSDATE(), #{bcomment_content}, #{bcomment_state}, #{board_index})
+</insert>
+
+<delete id="deleteComment" parameterType="string">
+	DELETE FROM BOARD_COMMENT WHERE BCOMMENT_INDEX = #{comment_idx}
+</delete>
+
+<select id="selectComment" parameterType="string" resultType="kr.or.ddit.vo.RealCommentVO">
+		SELECT b.*, m.NICKNAME 
+      FROM BOARD_COMMENT b, member m
+     WHERE b.BOARD_INDEX = #{board_index}
+       and b.MEMBER_MAIL = m.MEMBER_MAIL
+       order by 1 desc
+</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

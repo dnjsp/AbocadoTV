@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TAG">
+	<insert id="insertTag" parameterType="TagVO" useGeneratedKeys="true" keyProperty="tag_index">
+		INSERT INTO `TAG`
+		(TAG_INDEX, TAG, MEMBER_MAIL)
+		VALUES (null, #{tag}, #{member_mail})
+	</insert>
+	
+	<delete id="deleteTag" parameterType="TagVO">
+		DELETE FROM `TAG`
+		WHERE TAG_INDEX = #{tag_index}
+	</delete>
+	
+	<select id="selectListTag" resultType="TagVO" parameterType="string">
+		SELECT * FROM `TAG`
+		WHERE MEMBER_MAIL = #{member_mail}
+	</select>
+</mapper>

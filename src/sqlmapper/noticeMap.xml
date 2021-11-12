@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NOTICE">
+	<insert id="insertNotice" parameterType="NoticeVO" useGeneratedKeys="true" keyProperty="notice_index">
+		INSERT INTO `NOTICE`
+		(NOTICE_INDEX, MEMBER_MAIL, NOTICE_DATE, NOTICE_COUNT, NOTICE_CONTENT, NOTICE_TITLE)
+		VALUES (null, #{member_mail}, SYSDATE(), 1, #{notice_content}, #{notice_title})
+	</insert>
+	
+	<delete id="deleteNotice" parameterType="NoticeVO">
+		DELETE FROM `NOTICE`
+		WHERE NOTICE_INDEX = #{notice_index}
+	</delete>
+	
+	<update id="updateNotice" parameterType="NoticeVO">
+		UPDATE `NOTICE` 
+		   SET NOTICE_CONTENT = #{notice_content}, NOTICE_TITLE = #{notice_title}
+		WHERE NOTICE_INDEX = #{notice_index}
+	</update>
+	
+	<select id="selectListNotice" resultType="NoticeVO">
+		SELECT * FROM `NOTICE`
+	</select>
+	
+	<select id="countList" resultType="int">
+		SELECT COUNT(*) FROM NOTICE
+	</select>
+	
+	<select id="noticeList" resultType="NoticeVO">
+  		select b.*,
+			row_number() OVER() as ROWNUM
+      	from `notice` b
+        order by notice_index desc
+        limit #{start}, 10
+	</select>
+	
+	<select id="seeNotice" resultType="NoticeVO" parameterType="string">
+		SELECT *
+		  FROM `NOTICE`
+		 WHERE NOTICE_INDEX = #{notice_index}  
+	</select>
+	
+	<update id="updateCount" parameterType="string">
+		UPDATE `NOTICE`
+		   SET NOTICE_COUNT = NOTICE_COUNT + 1
+		 WHERE NOTICE_INDEX = #{notice_index}  
+	</update>
+	
+</mapper>
