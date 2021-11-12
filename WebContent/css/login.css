@@ -1,0 +1,177 @@
+.main {
+    width: 100%;
+    min-height: 525px;
+    min-width: 1100px;
+}
+
+.main h1 {
+    text-align: center;
+    padding-top: 110px;
+    padding-bottom: 120px;
+    font-size: 1.4rem;
+}
+
+.relative{
+    position: relative;
+}
+
+.relative img {
+    position: absolute;
+    top: 10px;
+    right: 2px;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 185px;
+    gap: 20px;
+}
+
+.login-form .form-text{
+    outline: none;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom: 1px solid #dadce0;
+    position: absolute;
+    transition: border-bottom .3s ease-in;
+    padding: 8px 20px 8px 8px;
+}
+
+.login-form .form-text:focus{
+    border-bottom: 1px solid #73B03B; 
+}
+
+.login-form .text-label{
+    position: absolute;
+    padding-top: .7em;
+    margin-left: .3em;
+    cursor: text;
+    color: #808080;
+    transition: all .2s ease-in;
+}
+
+.login-form .labelmove{
+    transform: translate(0,-7em);
+    font-size : .15rem;
+}
+
+.login-form .input-data{
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+}
+
+.loginbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap : 120px;
+}
+
+.login-input input{
+    padding: 100px;
+    border: 1px solid rgba(118, 118, 118, 0.459);
+}
+
+.save-id{
+    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+    letter-spacing: -0.5px;
+    min-height: 18px;
+    color: #909090;
+    gap: 5px;
+    font-size: .8rem;
+}
+
+.main input:focus {
+    outline: 1px solid rgba(87, 87, 87, 0.712);
+}
+
+.savelogin {
+    display: flex;
+    margin: 0;
+    margin-left: 5px;
+}
+
+.naver-login{
+    background-color: #26c826;
+    padding: 12px;
+    border-radius: 2px;
+}
+
+.kakao-login{
+    background-color: #fee500;
+    padding: 12px;
+    border-radius: 2px;
+}
+
+.login-btn {
+    width: 100%;
+    border: 1px solid #636363cc;
+    background: #fff;
+    color: #5a5a5a;
+    padding: 10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.login-btn:hover {
+    background-color: #B7C553;
+    border: 1px solid #B7C553;
+}
+
+.naver ,.kakao {
+    padding-right: 20px;
+}
+
+.right-login{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 185px;
+}
+
+.naver-login a{
+    color: #fff;
+    font-size: .8rem;
+}
+
+.kakao-login a {
+    color: rgb(60, 30, 30);
+    font-size: .8rem;
+}
+
+.right-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 32px;
+}
+
+.right-button button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background-color: #fff;
+    color: rgba(92, 92, 92, 0.815);
+    cursor: pointer;
+}
+
+.right-button button:hover {
+    color: rgb(92, 92, 92);
+}
+
+.errMsg {
+    position: absolute;
+    color: red;
+    top: 290px;
+    left: 43%;
+    font-size: .9rem;
+}

@@ -1,0 +1,77 @@
+.main{
+	display: flex;
+	flex-direction: row;
+}
+.boardShow {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.boardModify {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.board-head{
+	width: 50%;
+	display: flex;
+	justify-content: flex-end;
+	padding : 25px;
+    gap: 50px;
+}
+.board-main {
+    width: 1000px;
+    height: 400px;
+    border: 2px solid #8f993a;
+    padding: 25px;
+}
+
+.main>div {
+	padding: 20px;
+    padding-bottom: 50px;
+}
+
+.hidden {
+	display: none;
+}
+
+#update {
+	cursor: pointer;
+	color: black;
+}
+
+#updateTitle {
+	margin-bottom: 20px;
+	width: 350px;
+}
+.comment-list {
+	padding-left: 10px;
+}
+
+.submit-btn{
+	text-align : right;
+}
+.comment-list{
+	padding-top: 50px;
+}
+#comment-ul td{
+	padding : 10px;
+}
+#board-title {
+    display: flex;
+    justify-content: space-around;
+    padding: 70px;
+    gap: 50px;
+    align-items: center;
+}
+.board-title {
+    font-size: 1.7rem;
+    color: #0d3200;
+	padding: 30px;
+    padding-top: 50px;
+}
+#btnList {
+    font-size: .85rem;
+}

@@ -1,0 +1,54 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin: 100px 600px 100px;
+}
+
+.cam-btn, .submit-btn {
+    cursor: pointer;
+    border: 1px solid #a3a3a3cc;
+    background: #fff;
+    color: #5a5a5a;
+    padding: 7px;
+    border-radius: 5px;
+    width: 62px;
+}
+
+.cam-btn:hover, .submit-btn:hover {
+    background: rgb(240, 240, 240);
+}
+
+.stream-content {
+    resize: none;
+}
+
+.stream-content:focus {
+    outline: none;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.start-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.stream-title, .stream-category, .stream-content {
+    padding: 3px;
+    border: 1px solid #a3a3a3cc;
+}
+
+.stream-title:focus, .stream-category:focus, .stream-content:focus {
+    outline: none;
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+}

@@ -1,0 +1,94 @@
+.blog-menu {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 100%;
+    padding: 44px 50px 44px 70px;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    gap: 45px;
+    min-width: 300px;
+}
+
+.blog-menu a:hover, .category:hover {
+    opacity: .8;
+}
+.live {
+    color: rgb(230, 0, 0);
+    font-size: .8rem;
+    padding-top: 3px;
+}
+
+.live-view {
+    display: flex;
+    gap: 12px;
+}
+
+.category i {
+    padding-top: 3px;
+}
+
+.subcategory:before {
+    content: "-";
+    padding-right: 5px;
+    color: #333;
+}
+
+.subcategory {
+    font-size: 1rem;
+}
+
+.category-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    overflow: auto;
+    height: 390px;
+}
+
+.category-menu::-webkit-scrollbar {
+    width: 10px;
+}
+.category-menu::-webkit-scrollbar-thumb {
+    background-color: #636363b7;
+    border-radius: 8px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+.category-menu::-webkit-scrollbar-track {
+    background-color: none;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 1px white;
+}
+
+.category-menu-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.category-menu-ul-li {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.category-menu-ul-li-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.category {
+    background-color: transparent;
+    background-image: none;
+    border-color: transparent;
+    border: none;
+    padding: 0;
+    text-align: start;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}

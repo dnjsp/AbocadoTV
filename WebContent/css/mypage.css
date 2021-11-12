@@ -1,0 +1,256 @@
+.main {
+    width: 100%;
+    min-height: 525px;
+    min-width: 1100px;
+}
+
+.main h1 {
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 60px;
+    font-size: 1.4rem;
+}
+
+.mypage {
+    color: #535353;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+.relative{
+    position: relative;
+}
+
+.relative img {
+    position: absolute;
+    top: 10px;
+    right: 2px;
+}
+
+.pw-form{
+    padding: 0% 45%;
+    display: flex;
+    flex-direction: column;
+    width: 185px;
+    gap: 80px;
+}
+.login-btn{
+    display: inline-block;
+    text-align: center;
+}
+.pw-form .form-text{
+    outline: none;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom: 1px solid #dadce0;
+    position: absolute;
+    transition: border-bottom .3s ease-in;
+    padding: 8px 20px 8px 8px;
+}
+
+.pw-form .form-text:focus{
+    border-bottom: 1px solid #73B03B; 
+}
+
+.pw-form .text-label{
+    position: absolute;
+    padding-top: .7em;
+    margin-left: .3em;
+    cursor: text;
+    color: #808080;
+    transition: all .2s ease-in;
+}
+
+.pw-form .labelmove{
+    transform: translate(0,-7em);
+    font-size : .15rem;
+}
+
+.pw-form .input-data{
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+}
+
+.pw-input input{
+    padding: 100px;
+    border: 1px solid rgba(118, 118, 118, 0.459);
+}
+
+.password-see {
+    display: flex;
+}
+
+.login-btn {
+    width: 100%;
+    border: 1px solid #a3a3a3cc;
+    background: #fff;
+    color: #5a5a5a;
+    padding: 10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.login-btn:hover {
+    background-color: #B7C553;
+    border: 1px solid #B7C553;
+}
+
+.basicinfo ul {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.image-form input {
+    color: #535353;
+    font-size: .7rem;
+}
+
+.image-form button {
+    width: 55px;
+    height: 22px;
+    font-size: .7rem;
+    background-color: #ececec;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.basicinfo-btn {
+    cursor: pointer;
+    width: 38px;
+    height: 24px;
+    font-size: .7rem;
+    background-color: #ececec;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    margin-left: 2px;
+}
+
+#seedBtn {
+    cursor: pointer;
+    width: 85px;
+    height: 24px;
+    font-size: .7rem;
+    background-color: #ececec;
+    border: 1px solid #808080;
+    border-radius: 5px;
+}
+
+.image-form button:hover, .basicinfo-btn:hover, #seedBtn:hover {
+    opacity: .7;
+}
+
+#posessingBtn {
+    cursor: pointer;
+    background: inherit;
+    border:none;
+    padding:0;
+    font-size: .9rem;
+    color: #5a7a4d;
+    font-weight: bolder;
+}
+
+#posessingBtn:hover {
+    opacity: .8;
+}
+
+.input-info {
+    border: 1px solid #dbdbdb;
+    cursor: text;
+    border-radius: 5px;
+    height: 25px;
+    padding-left: 5px;
+}
+
+.input-info:focus {
+    outline: #cccccc;
+}
+
+.basicinfo-category:link,
+.basicinfo-category:visited,
+.basicinfo-category:active {
+    color: #879163;
+    font-weight: bolder;
+}
+
+.basicinfo-category:hover {
+    opacity: .8;
+}
+
+.passwordsee {
+    position: relative;
+    right: 24.3%;
+    top: 4px;
+}
+
+#textarea {
+    height: 100%;
+    resize: none;
+}
+
+.introduce {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.introduce-input {
+    padding-bottom: 50px;
+}
+
+.tagList{
+    width: 305px;
+    padding: 7px;
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+    flex-wrap: wrap;
+    border: 1px solid #dbdbdb;
+    font-size: .8rem;
+}
+.tagList .tags {
+	cursor: pointer;
+	border-radius: 5px;
+    border: none;
+    opacity: .8;
+    font-size: .05rem;
+}
+
+.myseed {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.pass-check-ul {
+    border: 1px solid rgb(226, 226, 226);
+    padding: 10px;
+}
+
+.pass-check-ul li {
+    font-size: .8rem;
+}
+
+.password-check {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tag-box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tag-btn {
+    display: flex;
+    gap: 5px;
+}

@@ -1,0 +1,210 @@
+.main {
+    min-width: 1450px;
+    width: 100%;
+}
+
+.boardShow {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.boardModify {
+	align-items: center;
+	display: flex;
+	flex-direction: column; 
+}
+.board-head{
+	width: 950px;
+	display: flex;
+	gap: 50px;
+	padding : 20px 50px 30px 50px;
+    justify-content: space-between;
+    font-size: .9rem;
+}
+.board-main {
+    border: 2px solid #929a40;
+    width: 950px;
+    height: 500px;
+    padding: 30px;
+    cursor: default;
+    overflow: auto;
+}
+.count {
+    display: flex;
+    gap: 30px;
+}
+
+.hidden {
+	display: none;
+}
+
+.main-title {
+    width: 950px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid #929a40;
+    border-bottom: 2px solid #929a40;
+}
+.username {
+    display: flex;
+    gap: 50px;
+}
+.board-title-box {
+    padding: 0 45px;
+    cursor: default;
+}
+
+#title {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    font-size: 1.5rem;
+}
+
+.main-box {
+    padding: 20px;
+}
+
+#update {
+	cursor: pointer;
+	color: black;
+}
+
+.board-title {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 1.4rem;
+}
+
+.submit-btn{
+	text-align : right;
+    padding-right: 15px;
+}
+
+#submit {
+    font-size: .8rem;
+    width: 65px;
+    height: 30px;
+    background-color: #f5f5f5;
+    border: 1px solid #a7a2a2;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submit:hover {
+    opacity: .7;
+}
+
+#comment-ul td{
+	padding : 10px 20px;
+}
+.comment-tr {
+    border-bottom: 1px solid rgb(214, 214, 214);
+}
+#btnList {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.likeTotal {
+    font-weight: bolder;
+}
+#like {
+    display: flex;
+    justify-content: right;
+    padding: 25px;
+    gap: 5px;
+    align-items: center;
+    padding-left: 45%;
+}
+.count-box {
+    display: flex;
+    gap: 7px;
+}
+
+.comment-list {
+    width: 950px;
+    padding: 0 10px;
+    border-top: 2px solid #929a40;
+    border-bottom: 2px solid #929a40;
+    font-size: .9rem;
+}
+.delete-btn {
+    width: 50px;
+    border: 1px solid #a3a3a3cc;
+    background: #fff;
+    color: #535353;
+    padding: 3px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: .8rem;
+}
+
+.delete-btn:hover {
+    opacity: .7;
+}
+
+.td-comment {
+    width: 664px;
+}
+
+.comment-textarea {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+    padding: 40px 30px;
+}
+
+.comment-button {
+    width: 45px;
+    height: 30px;
+}
+
+.comment-button:hover {
+    opacity: .8;
+}
+
+.comment-area {
+    padding: 15px;
+    resize: none;
+    overflow: visible;
+    width: 850px;
+    height: 90px;
+}
+
+.comment-area:focus {
+    outline: none;
+}
+
+.main-h1 {
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    font-size: 1.4rem;
+}
+.title-box {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    gap: 10px;
+}
+.comment-date {
+	width : 130px;
+}
+.comment-name {
+	width : 100px;
+}
+#updateTitle {
+    width: 1097px;
+    border: 1px solid #c9c9c9;
+    border-radius: 5px;
+}
+
+#updateTitle:focus {
+    outline: none;
+}

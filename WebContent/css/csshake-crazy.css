@@ -1,0 +1,181 @@
+/*! * * * * * * * * * * * * * * * * * * * *\  
+  CSShake :: shake-crazy
+  v1.5.0
+  CSS classes to move your DOM
+  (c) 2015 @elrumordelaluz
+  http://elrumordelaluz.github.io/csshake/
+  Licensed under MIT
+\* * * * * * * * * * * * * * * * * * * * */
+.shake-chunk {
+  display: inherit;
+  transform-origin: center center;
+  animation-play-state: running; 
+  }
+
+.shake-crazy {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+  
+  
+@keyframes shake-chunk {
+  2% {
+    transform: translate(2px, 15px) rotate(9deg); }
+  4% {
+    transform: translate(1px, 14px) rotate(-11deg); }
+  6% {
+    transform: translate(0px, 14px) rotate(-12deg); }
+  8% {
+    transform: translate(-14px, 8px) rotate(-8deg); }
+  10% {
+    transform: translate(-1px, 10px) rotate(15deg); }
+  12% {
+    transform: translate(-3px, 5px) rotate(2deg); }
+  14% {
+    transform: translate(-9px, 2px) rotate(14deg); }
+  16% {
+    transform: translate(-13px, 1px) rotate(-4deg); }
+  18% {
+    transform: translate(-1px, 1px) rotate(14deg); }
+  20% {
+    transform: translate(8px, 6px) rotate(15deg); }
+  22% {
+    transform: translate(-12px, -3px) rotate(3deg); }
+  24% {
+    transform: translate(-11px, 15px) rotate(-8deg); }
+  26% {
+    transform: translate(1px, -8px) rotate(-2deg); }
+  28% {
+    transform: translate(8px, 9px) rotate(9deg); }
+  30% {
+    transform: translate(-10px, 7px) rotate(9deg); }
+  32% {
+    transform: translate(-11px, -10px) rotate(12deg); }
+  34% {
+    transform: translate(-2px, -6px) rotate(-1deg); }
+  36% {
+    transform: translate(1px, 5px) rotate(-1deg); }
+  38% {
+    transform: translate(9px, 12px) rotate(-13deg); }
+  0%, 40%, 100% {
+    transform: translate(0, 0) rotate(0); } }
+
+.shake-trigger:hover .shake-chunk, .shake-chunk.shake-freeze, .shake-chunk.shake-constant {
+  animation-name: shake-chunk;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite; }
+  
+  .shake-freeze,
+  .shake-constant.shake-constant--hover:hover,
+  .shake-trigger:hover .shake-constant.shake-constant--hover {
+    animation-play-state: paused; }
+  
+  .shake-freeze:hover,
+  .shake-trigger:hover .shake-freeze, .shake-crazy:hover,
+  .shake-trigger:hover .shake-crazy {
+    animation-play-state: running; }
+  
+  @keyframes shake-crazy {
+    10% {
+      transform: translate(4px, 8px) rotate(1deg);
+      opacity: 0.92; }
+    20% {
+      transform: translate(5px, -11px) rotate(5deg);
+      opacity: 0.74; }
+    30% {
+      transform: translate(-16px, -9px) rotate(-7deg);
+      opacity: 0.72; }
+    40% {
+      transform: translate(-8px, 10px) rotate(9deg);
+      opacity: 0.86; }
+    50% {
+      transform: translate(0px, -7px) rotate(-3deg);
+      opacity: 0.16; }
+    60% {
+      transform: translate(9px, -9px) rotate(-7deg);
+      opacity: 0.05; }
+    70% {
+      transform: translate(-18px, -9px) rotate(-3deg);
+      opacity: 0.9; }
+    80% {
+      transform: translate(-13px, 13px) rotate(-5deg);
+      opacity: 0.71; }
+    90% {
+      transform: translate(-1px, 15px) rotate(5deg);
+      opacity: 0.26; }
+    0%, 100% {
+      transform: translate(0, 0) rotate(0); } }
+  
+  .shake-crazy:hover,
+  .shake-trigger:hover .shake-crazy, .shake-crazy.shake-freeze, .shake-crazy.shake-constant {
+    animation-name: shake-crazy;
+    animation-duration: 100ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite; }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    height: 100vh;
+    gap: 20px;
+    background-color: RGB(237, 241, 212);
+}
+
+.main-img {
+  height: 300px;
+  width: 300px;
+  padding-left: 100px;
+}
+
+@keyframes shake-chunk {
+  2% {
+    transform: translate(2px, 15px) rotate(9deg); }
+  4% {
+    transform: translate(1px, 14px) rotate(-11deg); }
+  6% {
+    transform: translate(0px, 14px) rotate(-12deg); }
+  8% {
+    transform: translate(-14px, 8px) rotate(-8deg); }
+  10% {
+    transform: translate(-1px, 10px) rotate(15deg); }
+  12% {
+    transform: translate(-3px, 5px) rotate(2deg); }
+  14% {
+    transform: translate(-9px, 2px) rotate(14deg); }
+  16% {
+    transform: translate(-13px, 1px) rotate(-4deg); }
+  18% {
+    transform: translate(-1px, 1px) rotate(14deg); }
+  20% {
+    transform: translate(8px, 6px) rotate(15deg); }
+  22% {
+    transform: translate(-12px, -3px) rotate(3deg); }
+  24% {
+    transform: translate(-11px, 15px) rotate(-8deg); }
+  26% {
+    transform: translate(1px, -8px) rotate(-2deg); }
+  28% {
+    transform: translate(8px, 9px) rotate(9deg); }
+  30% {
+    transform: translate(-10px, 7px) rotate(9deg); }
+  32% {
+    transform: translate(-11px, -10px) rotate(12deg); }
+  34% {
+    transform: translate(-2px, -6px) rotate(-1deg); }
+  36% {
+    transform: translate(1px, 5px) rotate(-1deg); }
+  38% {
+    transform: translate(9px, 12px) rotate(-13deg); }
+  0%, 40%, 100% {
+    transform: translate(0, 0) rotate(0); } }
+
+.shake-chunk, .shake-chunk.shake-freeze, .shake-chunk.shake-constant {
+  animation-name: shake-chunk;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite; 
+}

@@ -1,0 +1,28 @@
+.title {
+	background-color: RGB(237, 241, 212);
+	height: 70px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.body__container {
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	
+}
+
+.list {
+	display: flex;
+	justify-content: space-around;
+	padding: 15px;
+}
+
+.seed-list {
+	padding: 5px;
+}
+
+.seedlist {
+	padding: 20px;
+}

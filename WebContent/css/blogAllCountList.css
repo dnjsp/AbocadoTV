@@ -1,0 +1,173 @@
+@charset "EUC-KR";
+.main {
+    width: 100%;
+    min-height: 525px;
+    display : flex;
+    flex-direction: row;
+}
+
+.main h1 {
+    text-align: center;
+    padding-top: 90px;
+    padding-bottom: 80px;
+    font-size: 1.4rem;
+}
+
+td {
+	text-align: center;
+	border-bottom: 1px solid #dadce0;
+	padding: 16px;
+	padding-left: 40px;
+	padding-right: 40px;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+th {
+    text-align: center;
+    border-bottom: 2px solid #919a34;
+    border-top: 1.5px solid #919a34;
+    padding: 16px 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+#list {
+	display: inline-block;
+    border-bottom: 2px solid #919a34;
+}
+
+.table-list {
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+#paging a {
+	padding: 15px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+#paging {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    padding: 20px;
+}
+
+.btn {
+	cursor : pointer;
+    padding: 8px;
+}
+
+.btn:hover{
+	opacity : .6;
+}
+
+#page {
+	transition: all ease-in 0.2s;
+}
+#page:hover {
+	border-bottom: 1px solid #dadce0;
+	padding-bottom: 5px;
+}
+
+.searchBox {
+/* 	display: flex; */
+	
+    position: absolute;
+/*     top: 50%; */
+    left: 50%; 
+    transform:  translate(-50%,50%);
+    background: #F0EBD1;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+
+}
+.searchForm select{
+	margin-left: 47.8%;
+}
+
+.searchBox:hover > .searchInput,
+.searchInput:focus{
+    width: 240px;
+    padding: 0 6px;
+}
+
+.searchBox:hover > .searchButton {
+  background: white;
+  color : #2f3640;
+}
+
+.searchButton {
+    color: white;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #c9c7aa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    border: none;
+    cursor: pointer;
+}
+
+.searchForm{
+	height: 140px;
+}
+
+.searchInput {
+    border:none;
+    background: none;
+    outline:none;
+    float:left;
+    padding: 0;
+    color: black;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+}
+
+@media screen and (max-width: 620px) {
+.searchBox:hover > .searchInput {
+    width: 150px;
+    padding: 0 6px;
+}
+}
+
+#content {
+	text-align: center;
+	height : 50px;
+}
+
+#write {
+    margin-left: 615px;
+    width: 60px;
+    padding: 3px 10px;
+    height: 35px;
+    border: 1px solid #b3b2b2;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+#write:hover {
+    opacity: .6;
+}
+
+.category {
+    padding: 5px;
+    outline: none;
+    cursor: pointer;
+}
+.table-box {
+    display: flex;
+    justify-content: center;
+}

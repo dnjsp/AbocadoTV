@@ -1,0 +1,191 @@
+a {
+    text-decoration: none;
+    transition: color .15s ease-in;
+}
+
+a:link, a:visited, a:active{
+    color: black;
+}
+
+header a:hover {
+    opacity: .7;
+}
+
+footer a:hover {
+    color: #ccc;
+}
+
+.body__container {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.header__container {
+    background-color: RGB(237, 241, 212);
+    letter-spacing: 3px;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    margin: 17px;
+}
+
+.right-menu {
+    position: relative;
+    display: flex;
+    margin-right: 30px;
+    justify-content: center;
+    align-content: center;
+    margin-top: 40px;
+    gap: 10px;
+}
+
+.broadcast {
+    height: 3rem;
+}
+
+.onair {
+    height: 3rem;
+    margin-top: 2.5px;
+}
+
+.login {
+    height: 3.4rem;
+}
+
+.arrow-box {
+    display: none;
+    position: absolute;
+    width: 54px;
+    bottom: 15px;
+    border-radius: 8px;
+    color: #215C2F;
+    font-weight: bold;
+    font-size: .5rem;
+    transition: all ease .5s 0s;
+}
+
+.arrow-broadcast {
+    left: 0;
+}
+
+.arrow-onair {
+    left: 10px;
+}
+
+.arrow_box:after {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -100px;
+    pointer-events: none;
+    content: " ";
+  }
+
+.right-menu img:hover + p.arrow-box {
+    display: block;
+}
+
+.footer__container {
+    height:100px;
+    background: #fafafa;
+    font-size: .8rem;
+}
+
+.bottom-menu {
+    padding: 40px 10px;
+    display: flex;
+    justify-content: center;
+    gap : 15px;
+    border-bottom: 1px solid #e2e2e2;
+    font-weight: normal;
+}
+
+.company-explanation {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+    line-height: 130%;
+}
+
+.information {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    text-align: center;
+}
+
+.corp {
+    padding : 15px;
+    font-size: .8rem;
+    opacity: .7;
+    text-align: center;
+}
+
+.nav__container {
+    position: fixed;
+}
+
+.nav__container ul {
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.nav__container ul li {
+    position: relative;
+    width: 100%;
+}
+
+.nav__container ul li:hover {
+    background-color: #E9F1D5;
+}
+
+.nav__container ul li a {
+    position: relative;
+    display: block;
+    min-width: 100px;
+    white-space: nowrap;
+}
+
+.nav__container a {
+    padding: 15px;
+    padding-left: 40px;
+}
+
+.menu {
+    padding: 17px 60px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.toggle {
+    cursor: pointer;
+    z-index: 1;
+}
+
+.menuBtn {
+    position: absolute;
+    padding: 13.5px;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    background-color: #F0EBD1;
+}
+
+.nav-list{
+    background-color: none;
+}
+
+.clickmenu {
+    padding: 30px 30px 15px 30px;
+}
+.user-management {
+    font-size: .8rem;
+}

@@ -1,0 +1,98 @@
+.main {
+    min-height: 600px;
+    min-width: 450px;
+}
+
+.main h1 {
+    text-align: center;
+    padding-top: 110px;
+    font-size: 1.4rem;
+}
+
+.main h2 {
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 40px;
+    font-size: .8rem;
+    font-weight: 600;
+    color: #a58c38;
+}
+
+.relative{
+    position: relative;
+}
+
+.relative img {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+
+.email-form{
+    padding: 0% 35%;
+    display: flex;
+    flex-direction: column;
+    width: 185px;
+    gap: 80px;
+}
+
+.relative{
+    position: relative;
+}
+
+
+.email-form .form-text{
+    outline: none;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom: 1px solid #dadce0;
+    position: absolute;
+    transition: border-bottom .3s ease-in;
+    padding: 8px;
+}
+
+.email-form .form-text:focus{
+    border-bottom: 1px solid #73B03B; 
+}
+
+.email-form .text-label{
+    position: absolute;
+    padding-top: .7em;
+    margin-left: .3em;
+    cursor: text;
+    color: #808080;
+    transition: all .2s ease-in;
+}
+
+.email-form .labelmove{
+    transform: translate(0,-7em);
+    font-size : .15rem;
+}
+
+.email-form .input-data{
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+}
+
+.email-input input{
+    padding: 100px;
+    border: 1px solid rgba(118, 118, 118, 0.459);
+}
+
+.login-btn {
+    width: 100%;
+    border: 1px solid #a3a3a3cc;
+    background: #fff;
+    color: #5a5a5a;
+    padding: 10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.login-btn:hover {
+    background-color: #B7C553;
+    border: 1px solid #B7C553;
+}

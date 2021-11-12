@@ -1,0 +1,87 @@
+.main{
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	padding-bottom: 40px;
+}
+#chatArea { 
+     display: flex;
+   flex-direction: column;
+   gap: 20px;
+   border:2px solid #969e4c;
+   padding: 15px;   
+   width : 430px;
+}
+#connectArea {
+    border:2px solid green;   padding: 5px; width : 430px;
+}
+  
+#messageTextArea{
+      height: 300px;
+   width : 430px;
+   resize: none;
+   border: none;
+}
+
+#messageTextArea:focus, #messageText:focus {
+   outline: none;
+}
+
+.seed, .send {
+   font-size: .8rem;
+   cursor: pointer;
+   padding: 3px 5px;
+}
+
+
+#messageText {
+   padding: 3px;
+   width: 370px;
+}
+
+.send-seed {
+   font-size: .9rem;
+}
+
+.send {
+   width: 50px;
+}
+
+.seed {
+   width: 70px;
+}
+.donateImg{
+	width:100px;
+	height: 100px;
+	position: absolute;
+	top: 50px;
+	left: 500px;
+	z-index: 1;
+}
+.profile{
+	display : flex;
+	flex-direction : row;
+	gap : 100px;
+	border: 1px solid rgba(185, 183, 183, 0.815);
+	background-color: #edf1d4;
+	padding: 40px 0;
+}
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-left : 10%;
+}
+
+.seed-box {
+   display: flex;
+   justify-content: center;
+}
+
+.seed-lower {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   border: 1px solid rgb(212, 221, 208);
+   padding: 10px;
+}

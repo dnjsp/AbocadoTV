@@ -1,0 +1,115 @@
+.main {
+    width: 100%;
+    height: 1065px;
+    min-width: 1460px;
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.main h2 {
+    text-align: start;
+    padding-bottom: 25px;
+    padding-left: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.sliding-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    padding: 0 17.5%;
+    height: auto;
+    justify-content: space-between;
+}
+
+.sliding-box .left,
+.sliding-box .right {
+    width: 30px;
+    height: 30px;
+    padding: 13% 0;
+    cursor: pointer;
+}
+
+.sliding-box .right {
+    -webkit-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+
+.sliding-view {
+    overflow: hidden;
+    position: relative;
+    flex-basis: 900px;
+    width: 900px;
+    height: 300px;
+}
+
+.sliding-view .containner {
+    position: absolute;
+    left: 0;
+    margin: 0px;
+    width: 1800px;
+    background-color: #fff;
+}
+
+.sliding-view .containner li {
+    float: left;
+    height: 180px;
+}
+
+.sliding-view .containner li img {
+    width: 200px;
+    margin: 0 13px;
+}
+
+.containner li img:hover {
+    opacity: .8;
+}
+
+.left:hover, .right:hover {
+    opacity: .8;
+}
+
+.containner_list {
+    gap: 10px;
+}
+
+.title {
+    font-size: 1.1rem;
+}
+
+.title-lower {
+    font-size: .8rem;
+    display: flex;
+    gap: 7px;
+}
+
+.list_title {
+    padding: 15px;
+    gap: 7px;
+    display: flex;
+    flex-direction: column;
+}
+
+view {
+    display: flex;
+    gap: -2px;
+}
+
+.title-lower .user {
+    color: #6e7726;
+}
+
+.user:hover, .title:hover {
+    opacity: .8;
+}
+
+.fas {
+    color: #3d4216;
+}

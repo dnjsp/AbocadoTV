@@ -1,0 +1,186 @@
+.body__container {
+    min-width: 1370px;
+}
+
+.main {
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.main h1 {
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    font-size: 1.4rem;
+    
+}
+
+.searchBox {
+    position: absolute;
+    transform:  translate(-50%,50%);
+    background: #F0EBD1;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+@media screen and (min-width: 1350px) {
+.searchBox {
+    left: 50%;
+}
+}
+
+@media screen and (max-width: 1349.9px) {
+.searchBox {
+    left: 710px;
+}
+}
+
+.searchBox:hover > .searchInput {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.searchInput:focus{
+	width: 240px;
+    padding: 0 6px;
+    background: white;
+    color : #2f3640;
+}
+
+.searchBox:hover > .searchButton {
+    background: white;
+    color : #2f3640;
+}
+
+.searchButton {
+    color: white;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #c9c7aa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    border: none;
+    cursor: pointer;
+}
+
+.searchButton:hover {
+    opacity: .7;
+}
+
+.searchForm{
+    height: 120px;
+}
+
+.searchInput {
+    border:none;
+    background: none;
+    outline:none;
+    float:left;
+    padding: 0;
+    color: black;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+}
+
+@media screen and (max-width: 620px) {
+.searchBox:hover > .searchInput {
+    width: 150px;
+    padding: 0 6px;
+}
+}
+
+.category {
+    display: flex;
+    padding: 5px;
+}
+
+.category-box {
+    padding-top: 46px;
+    padding-left: 32%;
+}
+
+.rank-view {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding-top: 50px;
+    font-size: .9rem;
+}
+
+.rank-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 14px;
+    width : 500px;
+    border: 2px solid rgb(211, 210, 210)
+}
+
+.rank-name {
+    display: flex;
+    gap: 40px;
+    text-align: center;
+}
+
+.follower, .today {
+    display: flex;
+    gap: 7px;
+    font-size: .8rem;
+}
+
+.rank-view img {
+    width: 80px;
+    border-radius: 50%;
+}
+
+.number {
+    font-weight: bolder;
+    font-size: .7rem;
+    padding-top: 2px;
+}
+
+.rank-number {
+    padding-top: 30px;
+    font-size: 1.2rem;
+    color: rgb(149, 165, 90);
+    padding-right: 20px;
+}
+
+.rank-right a:hover, .rank-view img:hover {
+    opacity: .6;
+}
+
+.rank-percent {
+    font-size: 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rank {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: .7rem;
+}
+
+.rank-box {
+    display: inline-block;
+    width: 70px;
+    padding: 15px;
+    border: 1px solid rgb(221, 221, 221);
+    margin-left: 68%;
+    margin-top : -10px;
+}
+
+.pageList{
+	padding-top : 40px;
+	text-align: center;
+}

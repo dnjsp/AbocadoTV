@@ -1,0 +1,34 @@
+.main-href:link, .main-href:visited, .main-href:active {
+    text-decoration-line: none;
+    color: #213e03;
+}
+
+.main-href {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.comment-lower {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

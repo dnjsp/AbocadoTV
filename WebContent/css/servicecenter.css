@@ -1,0 +1,195 @@
+.main {
+    width: 100%;
+    min-width: 1170px;
+}
+
+.main h1 {
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    font-size: 1.4rem;
+}
+
+.servicecenter {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20%;
+    padding-bottom: 50px;
+}
+
+.title {
+    font-size: 1.25rem;
+    display: flex;
+    gap: 30px;
+    justify-content: start;
+    padding: 20px 0 0px 30px;
+    color: rgb(48, 90, 32);
+}
+
+.service-box {
+    border: 5px solid rgb(184, 192, 101);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.category-box {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 10px 70px 40px 70px;
+    align-items: center;
+}
+
+.send {
+    display: flex;
+    flex-direction: column;
+}
+
+.category {
+    width: 130px;
+    height: 30px;
+    padding-left: 10px;
+    border: 1px solid #999;
+}
+
+.title div {
+    padding: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.title div:hover {
+    opacity: .8;
+}
+
+.send-box {
+    display: flex;
+    gap: 10px;
+}
+
+.sendbox-mail {
+    padding: 5px;
+    width: 500px;
+    border: 1px solid rgba(118, 118, 118, 0.459);
+}
+
+.content {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.content textarea {
+    border: 1px solid rgba(118, 118, 118, 0.459);
+}
+
+.radio-text {
+    border: 1px solid rgba(118, 118, 118, 0.459);
+    padding: 5px;
+    width: 500px;
+}
+
+.mail-box {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.submit-btn {
+    width: 60px;
+    height: 35px;
+    background-color: #f5f5f5;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    opacity: .7;
+}
+
+#textarea {
+    height: 100%;
+    resize: none;
+    padding: 20px;
+}
+
+.service-box input:focus, .service-box textarea:focus {
+    outline: none;
+}
+
+#textarea::-webkit-scrollbar {
+    width: 10px;
+}
+#textarea::-webkit-scrollbar-thumb {
+    background-color: #636363b7;
+    border-radius: 8px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+#textarea::-webkit-scrollbar-track {
+    background-color: none;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 1px white;
+}
+
+.submit {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+.title-box {
+    background-color: rgba(195, 202, 122, 0.438);
+}
+
+.title-click {
+    background-color: rgb(184, 192, 101);
+}
+
+input[type="radio"] {
+    margin-top: -1px;
+    vertical-align: middle;
+}
+
+.introduce-box {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.introduce-view {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1.5px solid #b8c065;
+}
+
+.introduce-btn {
+    background-color: rgba(221, 233, 215, 0.397);
+    cursor: pointer;
+    padding: 30px 0;
+    font-size: 1.1rem;
+    border: none;
+}
+
+.introduce-btn:hover {
+    background-color: rgb(221, 233, 215);
+}
+
+.textarea {
+    border: none;
+    line-height: 2em;
+}
+
+.service-introduce {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.category:focus {
+    outline: none;
+}
