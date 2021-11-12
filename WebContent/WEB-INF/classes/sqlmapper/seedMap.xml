@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SEED">
+	<insert id="insertSeed" parameterType="seedVO">
+		INSERT INTO SEED (SEED_INDEX, MAMBER_MAIL, SEED, SEED_DATE, SEED_STATE)
+		VALUES(NULL,#{member_mail},#{seed},SYSDATE(), #{seed_state})
+	</insert>
+	
+	<select id="selectSumSeed" parameterType="string" resultType="int">
+		select (select nvl(sum(seed),0) 
+          from seed 
+	     where MAMBER_MAIL = #{member_mail}
+           and SEED_STATE IN ('B','I') ) 
+           - (select nvl(sum(seed),0) 
+          		from seed 
+ 			   where MAMBER_MAIL = #{member_mail}
+		         and SEED_STATE = 'D')
+	</select>
+	
+	<select id="chargedSeedList" parameterType="string" resultType="seedVO">
+		select SEED,SEED_INDEX ,SEED_DATE,SEED_STATE
+  		  from SEED 
+		 where MAMBER_MAIL = #{member_mail} 
+  		 order by SEED_INDEX desc
+ 		 limit 5
+	</select>
+</mapper>

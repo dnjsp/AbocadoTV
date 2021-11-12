@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MANAGER">
+	<insert id="insertManager" parameterType="ManagerVO">
+		INSERT INTO `MANAGER`
+		(MANAGER_INDEX, MEMBER_MAIL, MANAGER_MAIL)
+		VALUES (NULL, #{member_mail}, #{manager_mail})
+	</insert>
+	
+	<delete id="deleteManager" parameterType="ManagerVO">
+		DELETE FROM `MANAGER`
+		WHERE MANAGER_INDEX = #{manager_index}
+	</delete>
+	
+	<select id="selectListManager" resultType="string">
+		SELECT * FROM `MANAGER`
+		WHERE MANAGER_MAIL = #{manager_mail}
+	</select>
+	
+	<select id="checkManager" resultType="string">
+		SELECT EXISTS
+		(SELECT * FROM `MANAGER` WHERE MANAGER_MAIL = #{manager_mail} LIMIT 1) 
+		AS SUCCESS
+	</select>
+</mapper>

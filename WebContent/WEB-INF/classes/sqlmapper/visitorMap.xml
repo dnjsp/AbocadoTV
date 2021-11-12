@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="VISITOR">
+	<insert id="insertVisit" parameterType="VisitorVO">
+		insert into visitor(VISITOR_INDEX,VISITOR_DATE,VISITOR_TARGET,MEMBER_MAIL)
+		values (null,sysdate(),#{visitor_target},#{member_mail})
+	</insert>
+	
+	<select id="checkVisit" resultType="boolean" parameterType="VisitorVO">
+		SELECT IF(COUNT(*) = 1 , 'true', 'false') 
+		FROM `VISITOR` 
+		WHERE MEMBER_MAIL = #{member_mail} 
+		AND VISITOR_DATE = date(SYSDATE())
+		AND VISITOR_TARGET = #{visitor_target}
+	</select>
+	
+	<select id="countVisitor" resultType="int" parameterType="string">
+		select count(*)
+		from `VISITOR`
+		where VISITOR_DATE = date(SYSDATE())
+		and VISITOR_TARGET = #{target}
+	</select>
+	
+	<select id="countTotalVisitor" resultType="int" parameterType="string">
+		select count(*)
+		from `VISITOR`
+		where VISITOR_TARGET = #{target}
+	</select>
+</mapper>

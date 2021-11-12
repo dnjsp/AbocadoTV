@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BOARD">
+	<select resultType="int" parameterType="string" id="selectMyBoard">
+		SELECT COUNT(*) 
+		FROM BOARD 
+		WHERE MEMBER_MAIL = #{member_mail} 
+	</select>
+
+	<select resultType="int" parameterType="string" id="selectMyComment">
+		SELECT COUNT(*) 
+		FROM BOARD_COMMENT 
+		WHERE MEMBER_MAIL = #{member_mail} 
+	</select>
+	
+	<select id="countList" resultType="int">
+  		SELECT COUNT(*) FROM BOARD
+    </select>
+    
+    <select id="countListSearch" resultType="int" parameterType="hashmap">
+  		SELECT COUNT(*) 
+  		from `board` b , `member` m 
+      	where M.MEMBER_MAIL = B.MEMBER_MAIL
+      	and	${condition} like CONCAT('%',#{search},'%')
+    </select>
+    
+    <select id="boardList" resultType="kr.or.ddit.vo.RealBoardVO" parameterType="hashmap">
+  		select b.*,
+			m.NICKNAME,
+			bl.board_like,
+			row_number() OVER() as ROWNUM
+      	from `board` b , `member` m,
+      	(select count(bl.board_index) as board_like,
+	       		  board.board_index
+	         from board
+	         left join board_like bl 
+	         on bl.BOARD_INDEX = board.BOARD_INDEX 
+	        group by BOARD_INDEX) bl
+      	where M.MEMBER_MAIL = B.MEMBER_MAIL
+      	and bl.board_index = b.BOARD_INDEX
+        order by board_index desc
+        limit #{start}, 10
+    </select>
+   
+    <select id="boardListSearch" resultType="kr.or.ddit.vo.RealBoardVO" parameterType="hashmap">
+  		select b.*,
+			m.NICKNAME,
+			bl.board_like,
+			row_number() OVER() as ROWNUM
+      	from `board` b , `member` m ,
+      	(select count(bl.board_index) as board_like,
+	       		  board.board_index
+	         from board
+	         left join board_like bl 
+	         on bl.BOARD_INDEX = board.BOARD_INDEX 
+	        group by BOARD_INDEX) bl
+      	where M.MEMBER_MAIL = B.MEMBER_MAIL
+      	and ${condition} like CONCAT('%',#{search},'%')
+      	and bl.board_index = b.BOARD_INDEX
+        order by board_index desc
+        limit ${start}, 10
+    </select>
+    
+    <select id="selectNickName" parameterType="int" resultType="string">
+    	select NICKNAME
+		  from `member`
+		 where MEMBER_MAIL = (select MEMBER_MAIL 
+           						from `board`
+      						   where BOARD_INDEX = #{board_index})
+      						   
+    </select>
+    
+   <insert id="insertBoard" parameterType="BoardVO" useGeneratedKeys="true" keyProperty="board_index">
+	      INSERT INTO `BOARD`
+	      (BOARD_INDEX, MEMBER_MAIL, BOARD_DATE, BOARD_COUNT, BOARD_CONTENT, BOARD_TITLE)
+	      VALUES (NULL, #{member_mail}, SYSDATE(), 0, #{board_content}, #{board_title})
+   </insert>
+   
+   <delete id="deleteBoard" parameterType="string">
+      DELETE FROM `BOARD`
+       WHERE BOARD_INDEX = #{board_index}
+   </delete>
+   
+   <update id="updateBoard" parameterType="BoardVO">
+      UPDATE `BOARD` 
+         SET BOARD_CONTENT = #{board_content}, BOARD_TITLE = #{board_title}
+      WHERE BOARD_INDEX = #{board_index}
+   </update>
+   
+   <update id="updateCount" parameterType="string">
+      UPDATE `BOARD` 
+         SET BOARD_COUNT = BOARD_COUNT + 1 
+       WHERE BOARD_INDEX = #{board_index}
+   </update>
+   
+   <select id="seeBoard" resultType="kr.or.ddit.vo.RealBoardVO" parameterType="string">
+        SELECT m.NICKNAME, b.BOARD_INDEX, b.MEMBER_MAIL, 
+       b.BOARD_DATE, b.BOARD_COUNT, b.BOARD_CONTENT, 
+       b.BOARD_TITLE, count(bl.BLIKE_INDEX) as board_like
+          FROM `BOARD` b, `MEMBER` m , `board_like` bl
+         WHERE b.MEMBER_MAIL = m.MEMBER_MAIL
+           and b.BOARD_INDEX = bl.BOARD_INDEX 
+           AND b.BOARD_INDEX = #{board_index};
+   </select>
+   
+   <select id="searchBoard" parameterType="map" resultType="BoardVO">
+		SELECT * FROM BOARD 
+		 WHERE ${state} LIKE '%'||#{value}||'%'
+		 ORDER BY BOARD_IDX DESC
+   </select>	
+    
+    
+</mapper>

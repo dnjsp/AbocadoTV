@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="FOLLOW">
+	<insert id="insertFollow" parameterType="FollowVO">
+		INSERT INTO `FOLLOW`
+		(FOLLOWER_INDEX, FOLLOW_MAIL, FOLLOWER_MAIL)
+		VALUES (null, #{follow_mail}, #{follower_mail})
+	</insert>
+	
+	<delete id="deleteFollow" parameterType="FollowVO">
+		DELETE FROM `FOLLOW`
+		WHERE FOLLOWER_MAIL = #{follower_mail}
+	</delete>
+	
+	<select id="checkFollow" parameterType="FollowVO" resultType="boolean">
+	SELECT IF (COUNT(*) >= 1, 'true', 'false')
+	  FROM `FOLLOW`
+	 WHERE FOLLOW_MAIL = #{follow_mail}
+	  AND FOLLOWER_MAIL = #{follower_mail}
+	</select>
+	
+	<select id="selectListFollow" resultType="FollowVO">
+		SELECT * FROM `FOLLOW`
+		WHERE FOLLOW_MAIL = #{follow_mail}
+	</select>
+</mapper>

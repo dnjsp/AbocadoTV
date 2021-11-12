@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MEMBER">
+	<select id="checkMember" resultType="int" parameterType="string">
+		SELECT count(*) FROM `MEMBER`
+		WHERE MEMBER_MAIL = #{member_mail}
+	</select>
+	
+	<insert id="insertMember" parameterType="MemberVO">
+		INSERT INTO `MEMBER` 
+		(MEMBER_MAIL,FIRSTNAME,LASTNAME,NICKNAME,MEMBER_DATE,PASSWORD,REGEDENT_NUM)
+		VALUES (#{member_mail},#{firstname},#{lastname},#{nickname},SYSDATE(),#{password},#{regedent_num})
+	</insert>
+	
+	<select id="loginMember" resultType="boolean" parameterType="MemberVO">
+		SELECT IF(COUNT(*) = 1 , 'true', 'false') 
+		FROM `MEMBER` 
+		WHERE MEMBER_MAIL = #{member_mail}
+		AND PASSWORD = #{password}
+	</select>
+
+	<update id="update" parameterType="map">
+		UPDATE `MEMBER`
+		   SET ${selector} = #{value}
+		 WHERE MEMBER_MAIL = #{member_mail}
+	</update>
+	
+	<select parameterType="string" resultType="MemberVO" id="selectMember">
+		SELECT m.*,
+			nvl(f.followcount,0) as followcount,
+			nvl(vt.todaycount,0)	as todaycount,
+			nvl(v.totalcount,0) as totalcount
+		FROM `MEMBER` m 
+		left join (select count(*) as followcount,
+						follow_mail
+					from follow
+					group by follow_mail) f 
+		on f.FOLLOW_MAIL = m.MEMBER_MAIL 
+		left join (select count(*) as totalcount,
+						visitor_target
+					from `visitor`
+					group by visitor_target) v
+		on v.VISITOR_TARGET = m.MEMBER_MAIL
+		left join (select count(*) as todaycount,
+						visitor_target
+					from `visitor`
+					where VISITOR_DATE = date(SYSDATE())
+					group by visitor_target) vt
+		on vt.visitor_target = m.MEMBER_MAIL 
+		WHERE m.MEMBER_MAIL = #{member_mail} 
+	</select>
+	
+	<select id="memberRank" resultType="MemberVO" parameterType="map">
+	select m.MEMBER_MAIL,
+	   m.NICKNAME,
+	   m.PROFILEIMG,
+	   nvl(bb.blike,0) as likecount,
+	   nvl(f.follow,0) as followcount,
+	   nvl(bb.blike,0)*3 + nvl(f.follow,0)*3 + nvl(bbc.bcomment,0)*3 + nvl(v.visit,0)
+		from `member` m 
+		left join (select count(*) as blike , bc.MEMBER_MAIL 
+				from blog_like bl, blog_content bc 
+				where bl.BLOG_INDEX = bc.BLOG_INDEX
+				group by bc.MEMBER_MAIL) bb
+		on bb.MEMBER_MAIL = m.MEMBER_MAIL
+		left join (select count(*) as follow,
+					FOLLOW_MAIL 
+				from follow
+				group by FOLLOW_MAIL) f
+		on f.follow_mail = m.MEMBER_MAIL 
+		left join (select count(*) as bcomment , bc.MEMBER_MAIL 
+				from blog_comment bc2 , blog_content bc 
+				where bc2.BLOG_INDEX = bc.BLOG_INDEX
+				group by bc.MEMBER_MAIL) bbc
+		on bbc.member_mail = m.MEMBER_MAIL 
+		left join (select count(*) as visit,
+						VISITOR_TARGET
+				from visitor 
+				where VISITOR_TARGET != 'home'
+				group by VISITOR_TARGET) v
+		on v.VISITOR_TARGET = m.MEMBER_MAIL 
+		order by 6 desc
+		limit ${start}, 10
+	</select>
+	
+	<select id="memberSearchRank" resultType="MemberVO" parameterType="map">
+	select m.MEMBER_MAIL,
+	   m.NICKNAME,
+	   m.PROFILEIMG,
+	   nvl(bb.blike,0) as likecount,
+	   nvl(f.follow,0) as followcount,
+	   nvl(bb.blike,0)*3 + nvl(f.follow,0)*3 + nvl(bbc.bcomment,0)*3 + nvl(v.visit,0)
+		from `member` m 
+		left join (select count(*) as blike , bc.MEMBER_MAIL 
+				from blog_like bl, blog_content bc 
+				where bl.BLOG_INDEX = bc.BLOG_INDEX
+				group by bc.MEMBER_MAIL) bb
+		on bb.MEMBER_MAIL = m.MEMBER_MAIL
+		left join (select count(*) as follow,
+					FOLLOW_MAIL 
+				from follow
+				group by FOLLOW_MAIL) f
+		on f.follow_mail = m.MEMBER_MAIL 
+		left join (select count(*) as bcomment , bc.MEMBER_MAIL 
+				from blog_comment bc2 , blog_content bc 
+				where bc2.BLOG_INDEX = bc.BLOG_INDEX
+				group by bc.MEMBER_MAIL) bbc
+		on bbc.member_mail = m.MEMBER_MAIL 
+		left join (select count(*) as visit,
+						VISITOR_TARGET
+				from visitor 
+				where VISITOR_TARGET != 'home'
+				group by VISITOR_TARGET) v
+		on v.VISITOR_TARGET = m.MEMBER_MAIL 
+		where m.member_mail like CONCAT('%',#{member_mail},'%')
+		order by 6 desc
+		limit ${start}, 10
+	</select>
+	
+	<select id="countMember" resultType="int">
+		select count(*) as membercount
+		from `member`
+	</select>
+	
+	<select id="countSearchMember" resultType="int" parameterType="string">
+		select count(*) as membercount
+		from `member`
+		where member_mail like CONCAT('%',#{member_mail},'%')
+	</select>
+	
+	<update parameterType="map" id="updateMemberState">
+		UPDATE `MEMBER` 
+		SET FREEZEDATE = date_add(now(),INTERVAL ${day} DAY)
+		WHERE MEMBER_MAIL = #{member_mail} 
+	</update>
+
+	<select parameterType="string" resultType="int" id="checkFreezedate">
+		SELECT NVL(FREEZEDATE + 0, 0)
+		FROM `MEMBER`
+		WHERE MEMBER_MAIL = #{member_mail} 
+	</select>
+	
+	<select resultType="MemberVO" id="memberList">
+		SELECT MEMBER_MAIL, NICKNAME, MEMBER_DATE, FREEZEDATE
+		FROM `MEMBER` 
+	</select>
+</mapper>

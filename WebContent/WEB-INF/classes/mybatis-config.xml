@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+	 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="dbinfo.properties" />
+	<typeAliases>
+		<typeAlias type="kr.or.ddit.vo.MemberVO" alias="MemberVO"/>
+		<typeAlias type="kr.or.ddit.vo.EarningVO" alias="EarningVO"/>
+		<typeAlias type="kr.or.ddit.vo.SeedVO" alias="SeedVO"/>
+		<typeAlias type="kr.or.ddit.vo.BoardVO" alias="BoardVO"/>
+		<typeAlias type="kr.or.ddit.vo.BoardCommentVO" alias="BoardCommentVO"/>
+		<typeAlias type="kr.or.ddit.vo.BlogCategoryVO" alias="BlogCategoryVO"/>		
+		<typeAlias type="kr.or.ddit.vo.TagVO" alias="TagVO"/>		
+		<typeAlias type="kr.or.ddit.vo.BoardLikeVO" alias="BoardLikeVO"/>		
+		<typeAlias type="kr.or.ddit.vo.FollowVO" alias="FollowVO"/>		
+		<typeAlias type="kr.or.ddit.vo.VisitorVO" alias="VisitorVO"/>		
+		<typeAlias type="kr.or.ddit.vo.NoticeVO" alias="NoticeVO"/>		
+		<typeAlias type="kr.or.ddit.vo.BlogContentVO" alias="BlogContentVO"/>		
+		<typeAlias type="kr.or.ddit.vo.StreamingVO" alias="StreamingVO"/>		
+    </typeAliases>
+    <environments default="development">
+    	<environment id="development">
+    		<transactionManager type="JDBC"/>
+    		<dataSource type="POOLED">
+       			<property name="driver" value="${driver}"/>
+        		<property name="url" value="${url}"/>
+        		<property name="username" value="${user}"/>
+        		<property name="password" value="${pass}"/>
+      		</dataSource>
+     	</environment>
+  	</environments>
+  	<mappers>
+    	<mapper resource="sqlmapper/memberMap.xml"/>
+    	<mapper resource="sqlmapper/earningMap.xml"/>
+    	<mapper resource="sqlmapper/seedMap.xml"/>
+    	<mapper resource="sqlmapper/boardMap.xml"/>
+    	<mapper resource="sqlmapper/blogcategoryMap.xml"/>
+    	<mapper resource="sqlmapper/boardCommentMap.xml"/>
+    	<mapper resource="sqlmapper/tagMap.xml"/>
+    	<mapper resource="sqlmapper/boardLikeMap.xml"/>
+    	<mapper resource="sqlmapper/followMap.xml"/>
+    	<mapper resource="sqlmapper/visitorMap.xml"/>
+    	<mapper resource="sqlmapper/blogContentMap.xml"/>
+    	<mapper resource="sqlmapper/noticeMap.xml"/>
+    	<mapper resource="sqlmapper/streamingMap.xml"/>
+  	</mappers>
+</configuration>

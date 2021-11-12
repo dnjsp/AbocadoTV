@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BLOGCONTENT">
+	<select id="countTotalBlogContent" resultType="int" parameterType="string">
+		SELECT COUNT(*) FROM `BLOG_CONTENT` WHERE MEMBER_MAIL = #{member_mail}
+	</select>
+	
+	<insert id="insertBlogContent" parameterType="BlogContentVO" useGeneratedKeys="true" keyProperty="blog_index">
+		INSERT INTO `BLOG_CONTENT`
+		(BLOG_INDEX, MEMBER_MAIL, BLOG_DATE, BLOG_COUNT, BLOG_CONTENT, BLOG_TITLE, BLOG_AUTHORITH, BLOG_CATEGORY)
+		VALUES (null, #{member_mail}, SYSDATE(), 0, #{blog_content}, #{blog_title}, #{blog_authorith}, #{blog_category})
+	</insert>
+	
+	<delete id="deleteBlogContent" parameterType="string">
+		DELETE  
+		  FROM `BLOG_CONTENT`
+		 WHERE BLOG_INDEX = #{blog_index}
+	</delete>
+	
+	<update id="updateBlogContent" parameterType="BlogContentVO">
+		UPDATE `BLOG_CONTENT` 
+		   SET BLOG_CONTENT = #{blog_content}, BLOG_TITLE = #{blog_title}
+		WHERE BLOG_INDEX = #{blog_index}
+	</update>
+	
+	<select id="selectListBlogContent" parameterType="string" resultType="BlogContentVO">
+		SELECT * FROM `BLOG_CONTENT`
+		   WHERE BLOG_INDEX = #{blog_index}
+	</select>
+	
+	<select id="blogContentList" resultType="BlogContentVO" parameterType="kr.or.ddit.vo.RealBlogContentVO">
+ 		select b.*,
+              nvl(bl.likeCount,0) as blog_like,
+         	  row_number() OVER() as ROWNUM
+          from `blog_content` b
+      left join (select count(*) as likeCount,
+                        BLOG_INDEX 
+                   from blog_like
+                  group by blog_index) bl
+             on bl.blog_index = b.BLOG_INDEX 
+         where member_mail = #{member_mail} 
+         order by blog_index desc
+         limit ${startPage} , 10
+	</select>
+	
+	<select id="seeBlogContent" resultType="BlogContentVO" parameterType="string">
+		SELECT *
+		  FROM `BLOG_CONTENT`
+		 WHERE BLOG_INDEX = #{blog_index} 
+	</select>
+	
+	<update id="updateBlogCount" parameterType="string">
+		UPDATE `BLOG_CONTENT`
+		   SET BLOG_COUNT = BLOG_COUNT + 1
+		 WHERE BLOG_INDEX = #{blog_index}  
+	</update>
+	
+	<select id="countList" resultType="int" parameterType="string">
+		SELECT COUNT(*) 
+		  FROM BLOG_CONTENT
+		 WHERE MEMBER_MAIL = #{member_mail}
+	</select>
+	
+	<select id="selectCategoryContent" resultType="BlogContentVO" parameterType="kr.or.ddit.vo.RealBlogContentVO">
+  		select bc2.*,
+            nvl(bl.likecount,0) as blog_like
+        from blog_category bc , blog_content bc2
+        left join  (select count(*) as likecount,
+                      BLOG_INDEX 
+                    from blog_like
+                   group by BLOG_INDEX) bl
+          on bl.blog_index = bc2.BLOG_INDEX 
+       where bc.CATEGORY_INDEX = bc2.BLOG_CATEGORY
+         and bc.CATEGORY_INDEX = #{category_index}
+       order by bc2.BLOG_INDEX 
+       limit ${startPage} , 10
+	</select>
+	
+	<select id="countCategoryList" resultType="int" parameterType="string">
+		SELECT COUNT(*)
+		  FROM BLOG_CONTENT
+		 WHERE BLOG_CATEGORY = #{blog_category} 
+	</select>
+	
+	<update id="updateCount" parameterType="string">
+		UPDATE `BLOG_CONTENT`
+		   SET BLOG_COUNT = BLOG_COUNT + 1
+		 WHERE BLOG_INDEX = #{blog_index}  
+	</update>
+	
+	<select id="getMyCategory" parameterType="string" resultType="BlogCategoryVO">
+		SELECT *
+		  FROM BLOG_CATEGORY
+		 WHERE MEMBER_MAIL = #{member_mail} 
+	</select>
+	
+	
+	
+<!-- 	<select id="selectListBlogContent" resultType="string"> -->
+<!-- 		SELECT * FROM `BLOG_CONTENT` -->
+<!-- 		WHERE BLOG_INDEX = #{blog_index} -->
+<!-- 	</select> -->
+	
+<!-- 	<select id="seeBlogContent" resultType="string"> -->
+<!-- 		SELECT BLOG_INDEX, MEMBER_MAIL, BLOG_DATE, BLOG_COUNT, BLOG_CONTENT, BLOG_TITLE, BLOG_AUTHORITH, BLOG_CATEGORY -->
+<!-- 		FROM `BLOG_CONTENT` -->
+<!-- 	    WHERE BLOG_INDEX = #{board_index} -->
+<!-- 	</select> -->
+
+</mapper>
