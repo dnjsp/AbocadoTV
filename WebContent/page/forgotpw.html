@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>MYPAGE</title>
+<link rel="stylesheet" href="../css/jquery-ui.min.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/forgotpw.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
+</head>
+<body>
+	<div>
+      <main>
+         <div class="main">
+            <h1>Forgot Password</h1>
+            <h2>가입된 이메일 주소를 입력하세요. 해당 이메일로 임시 비밀번호가 전송됩니다.</h2>
+            <div class="email-form">
+               <div class="relative">
+                  <input type="text" id="email" name="email" class="form-text" onkeyup="enterkey()">
+                  <label for="email" class="text-label" onkeyup="enterkey()">E-MAIL</label>
+                  <img src="../img/check.jpg" class="hidden">
+              </div>
+              <button type="button" class="login-btn">확인</button>
+            </div>
+         </div>
+      </main>
+	</div>
+<script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script src="../js/forgotpw.js"></script>
+</body>
+</html>
